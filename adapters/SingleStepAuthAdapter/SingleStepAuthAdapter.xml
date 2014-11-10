@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wl:adapter name="SingleStepAuthAdapter"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:wl="http://www.worklight.com/integration"
+	xmlns:http="http://www.worklight.com/integration/http">
+
+	<displayName>SingleStepAuthAdapter</displayName>
+	<description>SingleStepAuthAdapter</description>
+	<connectivity>
+		<connectionPolicy xsi:type="http:HTTPConnectionPolicyType">
+			<protocol>https</protocol>
+			<domain>ff0973d2-ff52-4e30-919d-3d66a9c821c7-bluemix.cloudant.com</domain>
+			<port>443</port>	
+			<!-- Following properties used by adapter's key manager for choosing specific certificate from key store  
+			<sslCertificateAlias></sslCertificateAlias> 
+			<sslCertificatePassword></sslCertificatePassword>
+			-->		
+		</connectionPolicy>
+		<loadConstraints maxConcurrentConnectionsPerNode="2" />
+	</connectivity>
+
+	<procedure name="submitAuthentication"/>
+	<procedure name="getSecretData" securityTest="SingleStepAuthAdapter-securityTest"/>
+	
+</wl:adapter>

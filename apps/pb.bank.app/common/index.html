@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html ng-app="pb.bank" class="no-js">
+	<head>
+		<meta charset="UTF-8">
+		<title>pb.bank</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+		<!--
+    		<link rel="shortcut icon" href="images/favicon.png">
+    		<link rel="apple-touch-icon" href="images/apple-touch-icon.png"> 
+		
+		<script>window.$ = window.jQuery = WLJQ;</script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		-->
+
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.js"></script>
+	    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular-route.min.js"></script>
+	    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.2.min.js"></script>
+	    <script src="//crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+	    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">		 
+	    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">		 
+
+		<link rel="stylesheet" href="css/main.css">
+	    
+	</head>
+	<body style="display: none;">
+		<!--application UI goes here-->
+		<div class="container">
+    	    <div app-navigation></div>
+    	    <div app-alerts></div>
+			<div ng-view></div>
+			<div ng-controller="VersionCtrl">PB Bank app: v {{version}}</div>
+    	</div> <!-- /container -->
+		<script src="js/initOptions.js"></script>
+		<script src="js/main.js"></script>
+		<script src="js/navigation.js"></script>
+		<script src="js/login.js"></script>
+		<script src="js/homeview.js"></script>
+		<script src="js/view1.js"></script>
+		<script src="js/view2.js"></script>
+		<script src="js/user.js"></script>
+		<script src="js/alerts.js"></script>
+		<script src="js/version.js"></script>		
+		<script src="js/messages.js"></script>
+	</body>
+</html>

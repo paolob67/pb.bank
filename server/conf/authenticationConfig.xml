@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:loginConfiguration xmlns:tns="http://www.worklight.com/auth/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<!-- Uncomment the next element to protect the worklight console and the first section in securityTests below. -->
+	 <staticResources>
+	<!-- <resource id="worklightConsole" securityTest="WorklightConsole">
+			<urlPatterns>/console*</urlPatterns>
+		 </resource> 
+		-->
+		<resource id="subscribeServlet" securityTest="SubscribeServlet">
+			<urlPatterns>/subscribeSMS*</urlPatterns>
+		</resource>
+	</staticResources> 
+
+	<securityTests>
+	 	<customSecurityTest name="SingleStepAuthAdapter-securityTest">
+            <test isInternalUserID="true" realm="SingleStepAuthRealm"/>
+        </customSecurityTest>
+        <customSecurityTest name="DoubleStepAuthAdapter-securityTest">
+            <test isInternalUserID="true" realm="DoubleStepAuthRealm"/>
+        </customSecurityTest>      	
+       	<customSecurityTest name="SubscribeServlet">
+       		<test realm="SubscribeServlet" isInternalUserID="true"/>
+       	</customSecurityTest>      	
+	</securityTests> 
+	
+	<realms>
+		<realm loginModule="AuthLoginModule" name="SingleStepAuthRealm">
+			<className>com.worklight.integration.auth.AdapterAuthenticator</className>
+			<parameter name="login-function" value="SingleStepAuthAdapter.onAuthRequired"/>
+			<parameter name="logout-function" value="SingleStepAuthAdapter.onLogout"/>
+		</realm>
+		<realm loginModule="AuthLoginModule" name="DoubleStepAuthRealm">
+			<className>com.worklight.integration.auth.AdapterAuthenticator</className>
+			<parameter name="login-function" value="DoubleStepAuthAdapter.onAuthRequired"/>
+			<parameter name="logout-function" value="DoubleStepAuthAdapter.onLogout"/>
+		</realm>
+		<realm name="SubscribeServlet" loginModule="rejectAll">
+			<className>com.worklight.core.auth.ext.HeaderAuthenticator</className>			
+		</realm>
+	</realms>
+
+	<loginModules>
+		<loginModule name="AuthLoginModule">
+			<className>com.worklight.core.auth.ext.NonValidatingLoginModule</className>
+		</loginModule>
+		<loginModule name="StrongDummy">
+			<className>com.worklight.core.auth.ext.NonValidatingLoginModule</className>
+		</loginModule>		
+		<loginModule name="requireLogin">
+			<className>com.worklight.core.auth.ext.SingleIdentityLoginModule</className>
+		</loginModule>
+		
+		<loginModule name="rejectAll">
+			<className>com.worklight.core.auth.ext.RejectingLoginModule</className>
+		</loginModule>
+	</loginModules>
+
+</tns:loginConfiguration>

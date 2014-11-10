@@ -1,0 +1,41 @@
+<nav class="navbar navbar-inverse" role="navigation" ng-controller="NavigationCtrl as activeview">
+ 	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" ng-init="isCollapsed = true" ng-click="isCollapsed = !isCollapsed">
+			<!--		
+			<button type="button" class="collapsed navbar-toggle"  data-toggle="collapse" data-target="#appnavbar" aria-expanded="false" aria-controls="navbar">
+			-->
+				<span class="sr-only">Toggle navigation</span> 
+				<span class="icon-bar"></span> 
+				<span class="icon-bar"></span> 
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#/homeview" ng_click="activeview.select(0)">PB Bank</a>
+		</div>
+		<div class="navbar-collapse" ng-class="{collapse: isCollapsed}">
+		<!-- 
+		<div id="appnavbar" class="navbar-collapse" collapse="true">
+		 -->
+			<ul class="nav navbar-nav">
+				<li ng-class="{active : activeview.isSelected(1)}"><a ng-click="activeview.select(1)" href="#/view1">View1</a></li>
+				<li ng-class="{active : activeview.isSelected(2)}"><a ng-click="activeview.select(2)" href="#/view2">View2</a></li>
+				<li></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li ng-show="activeview.isLoggedIn()">
+					<span class="navbar-text"><p class="text-primary">{{activeview.userDisplayName}}</p></span>
+				</li>
+				<li ng-show="activeview.isLoggedIn()" ng-class="{active : activeview.isSelected(10)}">
+					<a ng-click="activeview.select(10)" href="#/user"><span class="glyphicon glyphicon-user"></span> Your account</a>
+				</li>
+              	<!-- 
+              	<li ng-hide="activeview.isLoggedIn()"><a ng_click= "activeview.doLogin()" >Log in</a></li>
+              	<li ng-show="activeview.isLoggedIn()"><a ng_click= "activeview.doLogout()">Log out</a></li>
+              	-->
+				<li ng-show="activeview.isLoggedIn()">
+					<a ng_click= "activeview.doLogout()"><span class="glyphicon glyphicon-off"></span> Logout</a>
+				</li>
+            </ul>
+		</div>
+	</div> 
+</nav>

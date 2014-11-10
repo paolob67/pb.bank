@@ -1,0 +1,62 @@
+<form name="loginForm" ng-submit="submitpin(pin)" novalidate>
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" ng-click="cancel()">
+			<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+		</button>
+		<h4>Enter your 4 digit pin to log in</h4>
+	</div>
+	<div class="modal-body">
+		<div class="form-group">
+			<label for="pin" class="control-label">Pin</label> <input
+				type="password" class="form-control" id="pin" placeholder="Pin"
+				ng-model="pin" ng-minlength="4" ng-maxlength="4"
+				ng-model-options="{updateOn: 'blur'}" required>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-1">
+					<button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '1'">1</button>
+				</div>
+				<div class="col-xs-1">
+					<button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '2'">2</button>
+				</div>
+				<div class="col-xs-1">
+					<button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '3'">3</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-1">
+					<button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '4'">4</button>
+				</div>
+				<div class="col-xs-1">
+					<button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '5'">5</button>
+				</div>
+				<div class="col-xs-1">
+					<button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '6'">6</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-1">
+					<button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '7'">7</button>
+				</div>
+				<div class="col-xs-1">
+					<button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '8'">8</button>
+				</div>
+				<div class="col-xs-1">
+					<button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '9'">9</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-1"></div>
+				<div class="col-xs-1">
+					<button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '0'">0</button>
+				</div>
+				<div class="col-xs-1"></div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button type="submit" class="btn btn-primary btn-block">Submit</button>
+		<button type="button" class="btn btn-warning btn-block" ng-click="cancel()">Cancel</button>
+	</div>
+</form>
