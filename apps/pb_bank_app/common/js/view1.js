@@ -12,6 +12,23 @@ angular.module('pb.bank.view1', ['ngRoute'])
 .controller('View1Ctrl', [ '$scope', function($scope) {
 	
 	$scope.response = "getting data....";
+	$scope.movements = [
+     {
+        "bala": 14900,
+        "date": "2014-01-03",
+        "move": -100
+     },
+     {
+        "bala": 15000,
+        "date": "2014-01-01",
+        "move": 1100
+     },
+     {
+        "bala": 14400,
+        "date": "2014-01-06",
+        "move": -500
+     }
+  ];
 		
 		var invocationData = {
 				adapter : the_auth_adapter,

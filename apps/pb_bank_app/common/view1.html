@@ -1,0 +1,18 @@
+<div class="jumbotron">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Date</th>
+				<th>Amount</th>
+				<th>Balance</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="movement in movements | orderBy:'date':reverse">
+				<td>{{movement.date}}</td>
+				<td>{{movement.move}}</td>
+				<td>{{movement.bala}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

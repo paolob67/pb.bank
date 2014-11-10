@@ -6,11 +6,11 @@
              disclosure restricted by GSA ADP Schedule Contract with IBM Corp. -->
 
 <!-- Attribute "id" must be identical to application folder name -->
-<application id="pbbankapp" platformVersion="6.2.0.01.20141015-1508"
+<application id="pb_bank_app" platformVersion="6.2.0.01.20141015-1508"
 	xmlns="http://www.worklight.com/application-descriptor" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-	<displayName>pb.bank.app</displayName>
+	<displayName>pb_bank_app</displayName>
 	<description>A starter online banking application built with Worklight, Angular and Bluemix services
 </description>
 	<author>

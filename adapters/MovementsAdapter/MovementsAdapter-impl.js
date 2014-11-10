@@ -31,8 +31,7 @@ function getMovements(account) {
 	    path : path,
 	    body : {
 	    	content: {
-	    		"selector" : { "accn" : account },
-	    		"sort": [{"date": "asc"}],
+	    		"selector" : { "accn" : account }
 	    	},
 	    	contentType: "application/json"
 	    }
