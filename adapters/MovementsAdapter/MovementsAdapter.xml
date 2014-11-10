@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Licensed Materials - Property of IBM
+    5725-I43 (C) Copyright IBM Corp. 2011, 2013. All Rights Reserved.
+    US Government Users Restricted Rights - Use, duplication or
+    disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<wl:adapter name="MovementsAdapter"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:wl="http://www.worklight.com/integration"
+	xmlns:http="http://www.worklight.com/integration/http">
+
+	<displayName>MovementsAdapter</displayName>
+	<description>MovementsAdapter</description>
+	<connectivity>
+		<connectionPolicy xsi:type="http:HTTPConnectionPolicyType">
+			<protocol>https</protocol>
+			<domain>ff0973d2-ff52-4e30-919d-3d66a9c821c7-bluemix.cloudant.com</domain>
+			<port>443</port>	
+			<!-- Following properties used by adapter's key manager for choosing specific certificate from key store  
+			<sslCertificateAlias></sslCertificateAlias> 
+			<sslCertificatePassword></sslCertificatePassword>
+			-->		
+		</connectionPolicy>
+		<loadConstraints maxConcurrentConnectionsPerNode="2" />
+	</connectivity>
+	<!-- 
+	<procedure name="getMovements" securityTest="DoubleStepAuthAdapter-securityTest"/>
+	 -->
+	<procedure name="getMovements"/>
+	 
+</wl:adapter>
