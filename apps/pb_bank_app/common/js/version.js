@@ -3,5 +3,5 @@
 angular.module('pb.bank.version', [])
 
 .controller('VersionCtrl', ['$scope', function($scope) {		
-		$scope.version = 0.2;
+		$scope.version = 0.3;
 }]);

@@ -53,6 +53,10 @@ angular.module('pb.bank.view1', ['ngRoute'])
 	*/
 	
 	$scope.movements = [];
+	var busyInd = new WL.BusyIndicator ("content", {text: "Fetching data..."});
+
+	busyInd.show();
+
 	
 	var invocationData = {
 			adapter : "MovementsAdapter",
@@ -62,10 +66,14 @@ angular.module('pb.bank.view1', ['ngRoute'])
 
 	WL.Client.invokeProcedure(invocationData, {
 		onSuccess: function(_response){
+			busyInd.hide();
+
 			$scope.movements = _response.invocationResult.movements;
 			$scope.$apply();
 		}, 
 		onFailure: function (_response) {
+			busyInd.hide();
+
 			$scope.movements = JSON.stringify(_response.invocationResult);
 			$scope.$apply();
 		},
