@@ -17,7 +17,7 @@
  * @param {string} account
  * @returns {object} json list of movements
  */
-function getMovements(account) {
+function getMovements() {
 //400162854
 	var path = "movements/_all_docs";
 	
@@ -25,13 +25,15 @@ function getMovements(account) {
 	var i;
 	var movements = [];
 	
+	var usrInfo = WL.Server.getActiveUser();
+	
 	var input = {
 	    method : 'post',
 	    returnedContentType : 'json',
 	    path : path,
 	    body : {
 	    	content: {
-	    		"selector" : { "accn" : account }
+	    		"selector" : { "accn" : usrInfo.attributes.accn }
 	    	},
 	    	contentType: "application/json"
 	    }
@@ -60,6 +62,7 @@ function getMovements(account) {
 		movements.push({
 			bala : rowresult.bala,
 			date : rowresult.date,
+			desc : rowresult.desc,
 			move : rowresult.move
 		});
 

@@ -3,6 +3,7 @@
 		<thead>
 			<tr>
 				<th>Date</th>
+				<th>Description</th>
 				<th>Amount</th>
 				<th>Balance</th>
 			</tr>
@@ -10,6 +11,7 @@
 		<tbody>
 			<tr ng-repeat="movement in movements | orderBy:'date':reverse">
 				<td>{{movement.date}}</td>
+				<td>{{movement.desc}}</td>
 				<td>{{movement.move}}</td>
 				<td>{{movement.bala}}</td>
 			</tr>

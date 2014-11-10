@@ -24,9 +24,9 @@
 		</connectionPolicy>
 		<loadConstraints maxConcurrentConnectionsPerNode="2" />
 	</connectivity>
-	<!-- 
-	<procedure name="getMovements" securityTest="DoubleStepAuthAdapter-securityTest"/>
-	 -->
-	<procedure name="getMovements"/>
 	 
+	<procedure name="getMovements" securityTest="DoubleStepAuthAdapter-securityTest"/>
+	<!-- 
+	<procedure name="getMovements"/>
+	--> 
 </wl:adapter>

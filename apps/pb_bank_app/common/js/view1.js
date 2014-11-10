@@ -11,43 +11,66 @@ angular.module('pb.bank.view1', ['ngRoute'])
 
 .controller('View1Ctrl', [ '$scope', function($scope) {
 	
+	/*
 	$scope.response = "getting data....";
+	
 	$scope.movements = [
-     {
-        "bala": 14900,
-        "date": "2014-01-03",
-        "move": -100
-     },
-     {
-        "bala": 15000,
-        "date": "2014-01-01",
-        "move": 1100
-     },
-     {
-        "bala": 14400,
-        "date": "2014-01-06",
-        "move": -500
-     }
-  ];
+		{
+        	"bala": 14900,
+        	"date": "2014-01-03",
+        	"move": -100
+		},
+		{
+			"bala": 15000,
+			"date": "2014-01-01",
+			"move": 1100
+		},
+		{
+			"bala": 14400,
+			"date": "2014-01-06",
+			"move": -500
+		}
+	];
 		
-		var invocationData = {
-				adapter : the_auth_adapter,
-				procedure: "getSecretData",
-				parameters: []
+	var invocationData = {
+		adapter : the_auth_adapter,
+		procedure: "getSecretData",
+		parameters: []
+	};
+	
+	WL.Client.invokeProcedure(invocationData, {
+		onSuccess: function(_response){
+			$scope.response = JSON.stringify(_response.invocationResult);
+			//window.location = "#/view1";
+			$scope.$apply();
+		}, 
+		onFailure: function (_response) {
+			$scope.response = JSON.stringify(_response.invocationResult);
+			//window.location = "#/view1";
+			$scope.$apply();
+		},
+	});
+	*/
+	
+	$scope.movements = [];
+	
+	var invocationData = {
+			adapter : "MovementsAdapter",
+			procedure: "getMovements",
+			parameters: []
 		};
-		
-		WL.Client.invokeProcedure(invocationData, {
-			onSuccess: function(_response){
-							$scope.response = JSON.stringify(_response.invocationResult);
-							//window.location = "#/view1";
-							$scope.$apply();
-						}, 
-			onFailure: function (_response) {
-							$scope.response = JSON.stringify(_response.invocationResult);
-							//window.location = "#/view1";
-							$scope.$apply();
-						},
-		});
+
+	WL.Client.invokeProcedure(invocationData, {
+		onSuccess: function(_response){
+			$scope.movements = _response.invocationResult.movements;
+			$scope.$apply();
+		}, 
+		onFailure: function (_response) {
+			$scope.movements = JSON.stringify(_response.invocationResult);
+			$scope.$apply();
+		},
+	});
+	
 	
 
 }]);
