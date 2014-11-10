@@ -44,11 +44,12 @@ function onAuthRequired(headers, errorMessage){
 function submitAuthStep1(email, password){
 	
 	var response;
+	var path = "users/" + email;
 	
 	response = WL.Server.invokeHttp({
 		method: 'get',
 		returnedContentType: 'json',
-		path: 'users/'+email
+		path: path
 	});
 			
 	
