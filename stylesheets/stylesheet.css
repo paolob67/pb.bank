@@ -419,6 +419,17 @@ Small Device Styles
     max-width: 480px;
     font-size: 11px;
   }
+  
+}
+
+.share-buttons{
+  	list-style: none;
+}
+
+.share-buttons li{
+  	display: inline;
+}
+
 /* This gets Google to fall into place */
 .social {
 	font-size: 1px;
@@ -438,5 +449,4 @@ Small Device Styles
 /* Adjust the widths individually if you like */
 .social .google {
 	width: 75px;
-}
 }
