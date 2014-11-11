@@ -16,7 +16,7 @@ angular.module('pb.bank.view1', ['ngRoute'])
 	
 	// var busyInd = new WL.BusyIndicator ("content", {text: "Fetching data..."});
 
-	busyInd.show();
+	// busyInd.show();
 
 	
 	var invocationData = {
