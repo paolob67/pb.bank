@@ -12,48 +12,30 @@
 				ng-model="pin" ng-minlength="4" ng-maxlength="4"
 				ng-model-options="{updateOn: 'blur'}" required>
 		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-1">
-					<button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '1'">1</button>
-				</div>
-				<div class="col-xs-1">
-					<button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '2'">2</button>
-				</div>
-				<div class="col-xs-1">
-					<button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '3'">3</button>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-1">
-					<button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '4'">4</button>
-				</div>
-				<div class="col-xs-1">
-					<button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '5'">5</button>
-				</div>
-				<div class="col-xs-1">
-					<button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '6'">6</button>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-1">
-					<button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '7'">7</button>
-				</div>
-				<div class="col-xs-1">
-					<button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '8'">8</button>
-				</div>
-				<div class="col-xs-1">
-					<button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '9'">9</button>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-1"></div>
-				<div class="col-xs-1">
-					<button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '0'">0</button>
-				</div>
-				<div class="col-xs-1"></div>
-			</div>
-		</div>
+		<table width="100%">
+			<tbody>
+				<tr>
+					<td><button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '1'">1</button></td>
+					<td><button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '2'">2</button></td>
+					<td><button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '3'">3</button></td>
+				</tr>
+				<tr>
+					<td><button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '4'">4</button></td>
+					<td><button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '5'">5</button></td>
+					<td><button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '6'">6</button></td>
+				</tr>
+				<tr>
+					<td><button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '7'">7</button></td>
+					<td><button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '8'">8</button></td>
+					<td><button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '9'">9</button></td>
+				</tr>
+				<tr>
+					<td><button type="button" class="btn btn-primary btn-block" ng-click="pin = ''"       >C</button></td>
+					<td><button type="button" class="btn btn-primary btn-block" ng-click="pin = pin + '0'">0</button></td>
+					<td><button type="button" class="btn btn-primary btn-block" ng-click="pin = pin"      >_</button></td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 	<div class="modal-footer">
 		<button type="submit" class="btn btn-primary btn-block">Submit</button>
