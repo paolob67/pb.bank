@@ -1,15 +1,15 @@
 'use strict';
 
-angular.module('pb.bank.view1', ['ngRoute'])
+angular.module('pb.bank.accountview', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {
-    templateUrl: 'view1.html',
-    controller: 'View1Ctrl'
+  $routeProvider.when('/accountview', {
+    templateUrl: 'accountview.html',
+    controller: 'AccountViewCtrl'
   });
 }])
 
-.controller('View1Ctrl', [ '$scope', function($scope) {
+.controller('AccountViewCtrl', [ '$scope', function($scope) {
 	
 	
 	$scope.movements = [];

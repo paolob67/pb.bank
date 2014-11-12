@@ -33,7 +33,7 @@
  * @param {ngModule} ngRoute manages loading of views based on window.location
  * @param {ngModule} pb.bank.navigation manages the navigation bar and the login authorization challenge handler
  * @param {ngModule} pb.bank.homeview manages the welcome page
- * @param {ngModule} pb.bank.view1 manages the first view with protected data 
+ * @param {ngModule} pb.bank.accountview manages the first view with protected data for the account 
  * @param {ngModule} pb.bank.view2 manages the second view with public data
  * @param {ngModule} pb.bank.user manages the display of the data inside the UserIdentity object
  * @param {ngModule} pb.bank.alerts manages alerts display on page (not modal)
@@ -44,7 +44,7 @@ angular.module('pb.bank', [
                             'ngRoute', 
                             'pb.bank.navigation',
                             'pb.bank.homeview',
-                            'pb.bank.view1', 
+                            'pb.bank.accountview', 
                             'pb.bank.view2',
                             'pb.bank.user',
                             'pb.bank.alerts',
