@@ -128,13 +128,13 @@ angular.module('pb.bank.navigation', [ 'ui.bootstrap' ])
 		this._activeView = 0;
 		window.location = "#";
 		
-		// Broadcast event for displaying lofgged off alert on the page */
+		// Broadcast event for displaying logged off alert on the page */
 		$rootScope.$broadcast('add_alert', {type: "success", msg: "You have successfully logged out"}); 
 
 	};
 
 	/**
-	 * @description handler returned from worklight against the 
+	 * @description handler returned from Worklight against the 
 	 * given realm createChallengeHandler(the_realm) defined in wlInitOptions
 	 * @class
 	 * @property {Object} ChallengeHandler the Worklight handler for authorization challenges

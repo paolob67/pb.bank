@@ -9,7 +9,10 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="movement in movements | orderBy:'date':reverse">
+			<tr ng-show="isloading">
+				<td colspan="4"><progressbar class="progress-striped active" value="100" type="info"></progressbar></td>
+			</tr>
+			<tr ng-hide="isloading" ng-repeat="movement in movements | orderBy:'date':reverse">
 				<td>{{movement.date}}</td>
 				<td>{{movement.desc}}</td>
 				<td>{{movement.move}}</td>
