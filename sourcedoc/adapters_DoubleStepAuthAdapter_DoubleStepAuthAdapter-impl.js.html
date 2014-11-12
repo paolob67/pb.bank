@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    
+    <title>pb.bank: Source: adapters/DoubleStepAuthAdapter/DoubleStepAuthAdapter-impl.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    
+	<!-- link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css" -->
+	
+
+    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
+
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+</head>
+
+<body>
+	
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/paolob67/pb.bank">View on GitHub</a>
+
+          <h1 id="project_title">pb.bank</h1>
+          <h2 id="project_tagline">A starter online banking application built with Worklight, Angular and Bluemix services</h2>
+            <section id="navigation">
+              <table>
+                <tr>
+                  <td><a href="../index.html">Intro and info</font></strong></td>
+                  <td><a href="../overview.html">Overview</a></td>
+                  <td><a href="../application.html">Application</a></td>
+                  <td><strong><font color="#f2f2f2">SourceDoc</font></strong></td>
+                </tr>
+              </table>
+            </section>
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/paolob67/pb.bank/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/paolob67/pb.bank/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+
+      <section id="main_content" class="inner">
+		<nav style="display: block; float: right; margin-left: 5px; margin-top: 28px; width: 200px; border-left: 1px solid #ccc;padding-left: 9px">
+	    	<h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="pb.module_Messages.html">Messages</a></li><li><a href="pb.module_wlInitOptions.html">wlInitOptions</a></li></ul><h3>Classes</h3><ul><li><a href="pb.bank.html">bank</a></li><li><a href="pb.bank.alerts.html">alerts</a></li><li><a href="pb.bank.DoubleStepAuthAdapter.html">DoubleStepAuthAdapter</a></li><li><a href="pb.bank.homeview.html">homeview</a></li><li><a href="pb.bank.MovementsAdapter.html">MovementsAdapter</a></li><li><a href="pb.bank.navigation.html">navigation</a></li><li><a href="pb.bank.navigation.ChallengeHandler.html">ChallengeHandler</a></li><li><a href="pb.bank.navigation.loginDialog.html">loginDialog</a></li><li><a href="pb.bank.navigation.loginpinDialog.html">loginpinDialog</a></li><li><a href="pb.bank.user.html">user</a></li></ul><h3>Namespaces</h3><ul><li><a href="pb.html">pb</a></li></ul>
+		</nav>
+ 	  	
+		<h3>Source: adapters/DoubleStepAuthAdapter/DoubleStepAuthAdapter-impl.js</h3>
+		
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Double Step Authorization Adapter
+ * @author Paolo Bianchini [paolo.bianchini@it.ibm.com]
+ * @copyright IBM Corp. 2014
+ */
+
+/**
+ * @description This adapter accesses a backend db to perform credential checks
+ * @class pb.bank.DoubleStepAuthAdapter
+ * @memberOf pb.bank
+ */
+
+/**
+ * @property {object} userIdentity holds info received from backend
+ * @memberOf pb.bank.DoubleStepAuthAdapter
+ */
+var userIdentity;
+
+/**
+ * @description the login function
+ * @function onAuthRequired
+ * @memberOf pb.bank.DoubleStepAuthAdapter
+ * @param {object} headers
+ * @param {string} errorMessage
+ * @returns {object} data JSON structure indication if authorization is required
+ */
+function onAuthRequired(headers, errorMessage){
+	errorMessage = errorMessage ? errorMessage : null;
+	return {
+		authRequired: true,
+		authStep: 1,
+		errorMessage: errorMessage
+	};
+}
+
+/**
+ * @description called by the challenge handler to perform the first step of by the submitAuth functions
+ * @function submitAuthStep1
+ * @memberOf pb.bank.DoubleStepAuthAdapter
+ * @param {string} email the userid for the user record
+ * @param {string} password MD5 hash of the password
+ * @returns data JSON structure indication if authorization is required
+ */
+function submitAuthStep1(email, password){
+	
+	var response;
+	var path = "users/" + email;
+	
+	response = WL.Server.invokeHttp({
+		method: 'get',
+		returnedContentType: 'json',
+		path: path
+	});
+			
+	
+	if (response.isSuccessful == true) {
+		
+		WL.Logger.debug("Step 1 :: FOUND USERID " + email + " " + response.password);
+		
+		if (response.password == password) {
+		
+			WL.Logger.debug("Step 1 :: MATCHED PASSWORD");
+			
+			userIdentity = {
+					userId: response._id,
+					displayName: response.attributes.name+" "+response.attributes.surn,
+					attributes: response.attributes
+			}
+			
+			// we made it to the authentication
+			return {
+				authRequired: true,
+				authStep: 2,
+				question: "Please enter security PIN",
+				errorMessage : ""
+			};
+			
+		};
+			
+	};
+	
+	// ok we were not able to authenticate return error
+	// we wont give info about the error to the app for security reasons
+	// but we can log on the server
+	WL.Logger.debug("Step 1 :: FAILURE");
+	return onAuthRequired(null, "Invalid login credentials");
+	
+}
+
+/**
+ * @description called by the challenge handler to perform the second step of by the submitAuth functions
+ * @function submitAuthStep2
+ * @memberOf pb.bank.DoubleStepAuthAdapter
+ * @param {string} pin the 4 digit pin
+ * @returns {object} data JSON structure indication if authorization is required
+ */
+function submitAuthStep2(pin){
+	
+	// let's check if we got the same pin
+	/** @todo rather than getting this from the userid attributes implement a different pin check method */
+	if (pin == userIdentity.attributes.pin_){
+		WL.Logger.debug("Step 2 :: SUCCESS");
+		WL.Server.setActiveUser("DoubleStepAuthRealm", userIdentity);
+		WL.Logger.debug("Authorized access granted");
+		
+		return {
+			authRequired: false
+		};
+	}
+	
+	else{
+		WL.Logger.debug("Step 2 :: FAILURE");
+		return onAuthRequired(null, "Wrong security PIN");
+	}
+		
+}
+
+function getSecretData(){
+	return {
+		secretData: "A very very very very secret data"
+	};
+}
+
+/**
+ * @description the logout function
+ * @function onLogout
+ * @memberOf pb.bank.DoubleStepAuthAdapter
+ */
+function onLogout(){
+	userIdentity = null;
+	WL.Server.setActiveUser("DoubleStepAuthRealm", userIdentity);
+	WL.Logger.debug("Logged out");
+}
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+
+    	<br clear="both">
+	  </section>
+	<div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+    	<p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-dev</a> on Wed Nov 12 2014 23:50:58 GMT+0100 (CET)</p>
+        <p class="copyright">pb.bank maintained by <a href="https://github.com/paolob67">paolob67</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+<footer>
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

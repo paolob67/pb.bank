@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    
+    <title>pb.bank: Source: apps/pb_bank_app/common/js/homeview.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    
+	<!-- link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css" -->
+	
+
+    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
+
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+</head>
+
+<body>
+	
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/paolob67/pb.bank">View on GitHub</a>
+
+          <h1 id="project_title">pb.bank</h1>
+          <h2 id="project_tagline">A starter online banking application built with Worklight, Angular and Bluemix services</h2>
+            <section id="navigation">
+              <table>
+                <tr>
+                  <td><a href="../index.html">Intro and info</font></strong></td>
+                  <td><a href="../overview.html">Overview</a></td>
+                  <td><a href="../application.html">Application</a></td>
+                  <td><strong><font color="#f2f2f2">SourceDoc</font></strong></td>
+                </tr>
+              </table>
+            </section>
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/paolob67/pb.bank/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/paolob67/pb.bank/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+
+      <section id="main_content" class="inner">
+		<nav style="display: block; float: right; margin-left: 5px; margin-top: 28px; width: 200px; border-left: 1px solid #ccc;padding-left: 9px">
+	    	<h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="pb.module_Messages.html">Messages</a></li><li><a href="pb.module_wlInitOptions.html">wlInitOptions</a></li></ul><h3>Classes</h3><ul><li><a href="pb.bank.html">bank</a></li><li><a href="pb.bank.alerts.html">alerts</a></li><li><a href="pb.bank.DoubleStepAuthAdapter.html">DoubleStepAuthAdapter</a></li><li><a href="pb.bank.homeview.html">homeview</a></li><li><a href="pb.bank.MovementsAdapter.html">MovementsAdapter</a></li><li><a href="pb.bank.navigation.html">navigation</a></li><li><a href="pb.bank.navigation.ChallengeHandler.html">ChallengeHandler</a></li><li><a href="pb.bank.navigation.loginDialog.html">loginDialog</a></li><li><a href="pb.bank.navigation.loginpinDialog.html">loginpinDialog</a></li><li><a href="pb.bank.user.html">user</a></li></ul><h3>Namespaces</h3><ul><li><a href="pb.html">pb</a></li></ul>
+		</nav>
+ 	  	
+		<h3>Source: apps/pb_bank_app/common/js/homeview.js</h3>
+		
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * HomeView Module
+ * @author Paolo Bianchini [paolo.bianchini@it.ibm.com]
+ * @copyright IBM Corp. 2014
+ */
+
+'use strict';
+
+/**
+ * @description This module manages the display of the welcome screen
+ * @class pb.bank.homeview
+ * @memberOf pb.bank
+ * @param {ngModule} ngRoute
+ */
+angular.module('pb.bank.homeview', ['ngRoute'])
+
+/**
+ * @description Loads welcome page when window.location is /homeview
+ * @callback pb.bank.homeview~config
+ * @param $routeProvider 
+ */    
+.config(['$routeProvider', function($routeProvider) {
+  $routeProvider.when('/homeview', {
+    templateUrl: 'homeview.html',
+    controller: 'HomeViewCtrl'
+  });
+}])
+
+/**
+ * @description Controller for the homeview module
+ * @callback pb.bank.homeview~controller
+ * @param {service} $scope 
+ */
+.controller('HomeViewCtrl', ['$scope', function($scope) {
+	
+	/**
+	 * @property {int} $scope.slideInterval holds interval for slideshow
+	 * @memberOf pb.bank.homeview
+	 * @default
+	 */
+	$scope.slideInterval = 5000;
+	
+	/**
+	 * @property {array} $scope.slides holds data for slideshow {image: "the url to load"}
+	 * @memberOf pb.bank.homeview
+	 */
+	$scope.slides = [];
+	
+	// load images from {@link http://placehold.it|Placehold} and push them into slides array
+	$scope.slides.push({ image: 'http://placehold.it/600x300/aaaaaa/ffffff&amp;text=Campaign+content+1' });
+	$scope.slides.push({ image: 'http://placehold.it/600x300/00ff00/ffffff&amp;text=Campaign+content+2' });
+	$scope.slides.push({ image: 'http://placehold.it/600x300/0000ff/ffffff&amp;text=Campaign+content+3' });
+	$scope.slides.push({ image: 'http://placehold.it/600x300/ff0000/ffffff&amp;text=Campaign+content+4' });
+
+}]);</code></pre>
+        </article>
+    </section>
+
+
+
+
+
+    	<br clear="both">
+	  </section>
+	<div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+    	<p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-dev</a> on Wed Nov 12 2014 23:50:58 GMT+0100 (CET)</p>
+        <p class="copyright">pb.bank maintained by <a href="https://github.com/paolob67">paolob67</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+<footer>
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

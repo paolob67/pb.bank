@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    
+    <title>pb.bank: Source: apps/pb_bank_app/common/js/main.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    
+	<!-- link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css" -->
+	
+
+    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
+
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+</head>
+
+<body>
+	
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/paolob67/pb.bank">View on GitHub</a>
+
+          <h1 id="project_title">pb.bank</h1>
+          <h2 id="project_tagline">A starter online banking application built with Worklight, Angular and Bluemix services</h2>
+            <section id="navigation">
+              <table>
+                <tr>
+                  <td><a href="../index.html">Intro and info</font></strong></td>
+                  <td><a href="../overview.html">Overview</a></td>
+                  <td><a href="../application.html">Application</a></td>
+                  <td><strong><font color="#f2f2f2">SourceDoc</font></strong></td>
+                </tr>
+              </table>
+            </section>
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/paolob67/pb.bank/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/paolob67/pb.bank/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+
+      <section id="main_content" class="inner">
+		<nav style="display: block; float: right; margin-left: 5px; margin-top: 28px; width: 200px; border-left: 1px solid #ccc;padding-left: 9px">
+	    	<h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="pb.module_Messages.html">Messages</a></li><li><a href="pb.module_wlInitOptions.html">wlInitOptions</a></li></ul><h3>Classes</h3><ul><li><a href="pb.bank.html">bank</a></li><li><a href="pb.bank.alerts.html">alerts</a></li><li><a href="pb.bank.DoubleStepAuthAdapter.html">DoubleStepAuthAdapter</a></li><li><a href="pb.bank.homeview.html">homeview</a></li><li><a href="pb.bank.MovementsAdapter.html">MovementsAdapter</a></li><li><a href="pb.bank.navigation.html">navigation</a></li><li><a href="pb.bank.navigation.ChallengeHandler.html">ChallengeHandler</a></li><li><a href="pb.bank.navigation.loginDialog.html">loginDialog</a></li><li><a href="pb.bank.navigation.loginpinDialog.html">loginpinDialog</a></li><li><a href="pb.bank.user.html">user</a></li></ul><h3>Namespaces</h3><ul><li><a href="pb.html">pb</a></li></ul>
+		</nav>
+ 	  	
+		<h3>Source: apps/pb_bank_app/common/js/main.js</h3>
+		
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Application module
+ * @author Paolo Bianchini [paolo.bianchini@it.ibm.com]
+ * @copyright IBM Corp. 2014
+ * @namespace pb
+ */
+
+
+//function wlCommonInit(){
+	/*
+	 * Use of WL.Client.connect() API before any connectivity to a Worklight Server is required. 
+	 * This API should be called only once, before any other WL.Client methods that communicate with the Worklight Server.
+	 * Don't forget to specify and implement onSuccess and onFailure callback functions for WL.Client.connect(), e.g:
+	 *    
+	 *    WL.Client.connect({
+	 *    		onSuccess: onConnectSuccess,
+	 *    		onFailure: onConnectFailure
+	 *    });
+	 *     
+	 */
+	
+	// Common initialization code goes here
+	
+//}
+
+'use strict';
+
+/**
+ * @description Declare application level module defined in {@link http://../common/index.html|common/index.html }
+ * @class pb.bank
+ * @memberOf pb
+ * @param {ngModule} ui.bootstrap user interface
+ * @param {ngModule} ngRoute manages loading of views based on window.location
+ * @param {ngModule} pb.bank.navigation manages the navigation bar and the login authorization challenge handler
+ * @param {ngModule} pb.bank.homeview manages the welcome page
+ * @param {ngModule} pb.bank.accountview manages the first view with protected data for the account 
+ * @param {ngModule} pb.bank.view2 manages the second view with public data
+ * @param {ngModule} pb.bank.user manages the display of the data inside the UserIdentity object
+ * @param {ngModule} pb.bank.alerts manages alerts display on page (not modal)
+ * @param {ngModule} pb.bank.version manages application version display
+ */
+angular.module('pb.bank', [ 
+                            'ui.bootstrap', 
+                            'ngRoute', 
+                            'pb.bank.navigation',
+                            'pb.bank.homeview',
+                            'pb.bank.accountview', 
+                            'pb.bank.view2',
+                            'pb.bank.user',
+                            'pb.bank.alerts',
+                            'pb.bank.version' 
+                          ])
+/**
+ * @description Loads welcome page as default location
+ * @callback pb.bank~config
+ * @param {service} $routeProvider 
+ */                            
+.config([ '$routeProvider', function($routeProvider) {
+	$routeProvider.otherwise({
+		redirectTo : '/homeview'
+	});
+}]) 
+
+/**
+ * @description Provide {@link http://../common/navigation.html|common/navigation} html template for the app-navigation div attribute
+ * @callback pb.bank~directive
+ * @param {attribute} appNavigation app-navigation div
+ */
+.directive('appNavigation', [function() {
+	return {
+		restrict: 'A',
+		templateUrl: 'navigation.html'
+	};
+
+}])
+
+/**
+ * @description Provide {@link http://../common/alerts.html|common/alerts} html template for the appAlerts div attribute
+ * @callback pb.bank~directive
+ * @param {attribute} appAlerts app-alerts div
+ */
+.directive('appAlerts', [function() {
+	return {
+		restrict: 'A',
+		templateUrl: 'alerts.html'
+	};
+
+}]);
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+
+    	<br clear="both">
+	  </section>
+	<div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+    	<p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-dev</a> on Wed Nov 12 2014 23:50:58 GMT+0100 (CET)</p>
+        <p class="copyright">pb.bank maintained by <a href="https://github.com/paolob67">paolob67</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+<footer>
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
