@@ -1,3 +1,9 @@
+/**
+ * AccountView Module
+ * @author Paolo Bianchini
+ * @copyright IBM Corp. 2014
+ */
+
 'use strict';
 
 angular.module('pb.bank.accountview', ['ngRoute'])

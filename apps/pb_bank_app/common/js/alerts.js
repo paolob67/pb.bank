@@ -1,6 +1,6 @@
 /**
  * Alerts Module
- * @author Paolo Bianchini [paolo.bianchini@it.ibm.com]
+ * @author Paolo Bianchini
  * @copyright IBM Corp. 2014
  */
 
