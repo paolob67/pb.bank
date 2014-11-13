@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     
-    <title>pb.bank - soruce documentation: Class: loginpinDialog</title>
+    <title>pb.bank - soruce documentation: Class: accountview</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -64,7 +64,7 @@
 	    	<h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="pb.module_Messages.html">Messages</a></li><li><a href="pb.module_wlInitOptions.html">wlInitOptions</a></li></ul><h3>Classes</h3><ul><li><a href="pb.bank.html">bank</a></li><li><a href="pb.bank.accountview.html">accountview</a></li><li><a href="pb.bank.alerts.html">alerts</a></li><li><a href="pb.bank.DoubleStepAuthAdapter.html">DoubleStepAuthAdapter</a></li><li><a href="pb.bank.homeview.html">homeview</a></li><li><a href="pb.bank.investmentsview.html">investmentsview</a></li><li><a href="pb.bank.MovementsAdapter.html">MovementsAdapter</a></li><li><a href="pb.bank.navigation.html">navigation</a></li><li><a href="pb.bank.navigation.ChallengeHandler.html">ChallengeHandler</a></li><li><a href="pb.bank.navigation.loginDialog.html">loginDialog</a></li><li><a href="pb.bank.navigation.loginpinDialog.html">loginpinDialog</a></li><li><a href="pb.bank.StocksAdapter.html">StocksAdapter</a></li><li><a href="pb.bank.user.html">user</a></li></ul><h3>Namespaces</h3><ul><li><a href="pb.html">pb</a></li></ul>
 		</nav>
  	  	
-		<h3>Class: loginpinDialog</h3>
+		<h3>Class: accountview</h3>
 		
 
 
@@ -75,9 +75,9 @@
 <header>
     
         <h2>
-            <span class="ancestors"><a href="pb.html">pb</a><a href="pb.bank.html">.bank</a><a href="pb.bank.navigation.html">.navigation</a>.</span>
+            <span class="ancestors"><a href="pb.html">pb</a><a href="pb.bank.html">.bank</a>.</span>
         
-        loginpinDialog
+        accountview
         </h2>
         
     
@@ -89,7 +89,7 @@
         
 <dt>
     
-        <h4 class="name" id="loginpinDialog"><span class="type-signature"></span>new loginpinDialog<span class="signature">()</span><span class="type-signature"></span></h4>
+        <h4 class="name" id="accountview"><span class="type-signature"></span>new accountview<span class="signature">(ngRoute)</span><span class="type-signature"></span></h4>
 
         
     
@@ -97,13 +97,65 @@
 <dd>
 
     
-
+    <div class="description">
+        This module manages the display of the account movements screen
+    </div>
     
 
     
 
     
 
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>ngRoute</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">ngModule</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
     
 
     
@@ -136,7 +188,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="apps_pb_bank_app_common_js_navigation.js.html">apps/pb_bank_app/common/js/navigation.js</a>, <a href="apps_pb_bank_app_common_js_navigation.js.html#line325">line 325</a>
+        <a href="apps_pb_bank_app_common_js_accountview.js.html">apps/pb_bank_app/common/js/accountview.js</a>, <a href="apps_pb_bank_app_common_js_accountview.js.html#line9">line 9</a>
     </li></ul></dd>
     
 
@@ -177,36 +229,73 @@
     
 
     
-
-    
-        <h3 class="subsection-title">Methods</h3>
+        <h3 class="subsection-title">Members</h3>
 
         <dl>
             
 <dt>
-    
-        <h4 class="name" id="cancel"><span class="type-signature">(static) </span>cancel<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="$scope.movements"><span class="type-signature">(static) </span>$scope.movements<span class="type-signature"></span></h4>
 
-        
     
 </dt>
 <dd>
-
-    
-    <div class="description">
-        called when user clicks on the cancel button, closes dialog
-    </div>
     
 
     
 
     
 
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
     
 
-    
+        <tr>
+            
+                <td class="name"><code>$scope.movements</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">holds movements for account</td>
+        </tr>
 
     
+    </tbody>
+</table>
+</dl>
+
 
 
 <dl class="details">
@@ -236,7 +325,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="apps_pb_bank_app_common_js_navigation.js.html">apps/pb_bank_app/common/js/navigation.js</a>, <a href="apps_pb_bank_app_common_js_navigation.js.html#line362">line 362</a>
+        <a href="apps_pb_bank_app_common_js_accountview.js.html">apps/pb_bank_app/common/js/accountview.js</a>, <a href="apps_pb_bank_app_common_js_accountview.js.html#line40">line 40</a>
     </li></ul></dd>
     
 
@@ -251,23 +340,21 @@
     
 
     
-
-    
-
-    
-
-    
-
-    
-
-    
 </dd>
 
-        
-            
+        </dl>
+    
+
+    
+
+    
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        <dl>
+                
 <dt>
     
-        <h4 class="name" id="submitpin"><span class="type-signature">(static) </span>submitpin<span class="signature">(_pin)</span><span class="type-signature"></span></h4>
+        <h4 class="name" id="config"><span class="type-signature"></span>config<span class="signature">($routeProvider)</span><span class="type-signature"></span></h4>
 
         
     
@@ -276,7 +363,7 @@
 
     
     <div class="description">
-        called when user clicks on the submit button, sends pin
+        Loads account page when window.location is /accountview
     </div>
     
 
@@ -312,15 +399,10 @@
 
         <tr>
             
-                <td class="name"><code>_pin</code></td>
+                <td class="name"><code>$routeProvider</code></td>
             
 
             <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
             
             </td>
 
@@ -328,7 +410,7 @@
 
             
 
-            <td class="description last">the 4 digit pin</td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -366,7 +448,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="apps_pb_bank_app_common_js_navigation.js.html">apps/pb_bank_app/common/js/navigation.js</a>, <a href="apps_pb_bank_app_common_js_navigation.js.html#line340">line 340</a>
+        <a href="apps_pb_bank_app_common_js_accountview.js.html">apps/pb_bank_app/common/js/accountview.js</a>, <a href="apps_pb_bank_app_common_js_accountview.js.html#line17">line 17</a>
     </li></ul></dd>
     
 
@@ -393,17 +475,11 @@
     
 </dd>
 
-        </dl>
-    
-
-    
-        <h3 class="subsection-title">Type Definitions</h3>
-
-        <dl>
+            
                 
 <dt>
     
-        <h4 class="name" id="LoginpinCtrl"><span class="type-signature"></span>LoginpinCtrl<span class="signature">($scope, $modalInstance)</span><span class="type-signature"></span></h4>
+        <h4 class="name" id="controller"><span class="type-signature"></span>controller<span class="signature">($scope)</span><span class="type-signature"></span></h4>
 
         
     
@@ -412,7 +488,7 @@
 
     
     <div class="description">
-        Controller for the pin dialog
+        Controller for the accountview module
     </div>
     
 
@@ -464,30 +540,7 @@
 
             
 
-            <td class="description last">the current scope</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>$modalInstance</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">service</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">the instance of the modal dialogs for the login</td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -525,7 +578,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="apps_pb_bank_app_common_js_navigation.js.html">apps/pb_bank_app/common/js/navigation.js</a>, <a href="apps_pb_bank_app_common_js_navigation.js.html#line332">line 332</a>
+        <a href="apps_pb_bank_app_common_js_accountview.js.html">apps/pb_bank_app/common/js/accountview.js</a>, <a href="apps_pb_bank_app_common_js_accountview.js.html#line29">line 29</a>
     </li></ul></dd>
     
 

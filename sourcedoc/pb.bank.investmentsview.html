@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     
-    <title>pb.bank - soruce documentation: Source: apps/pb_bank_app/common/js/accountview.js</title>
+    <title>pb.bank - soruce documentation: Class: investmentsview</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -64,89 +64,439 @@
 	    	<h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="pb.module_Messages.html">Messages</a></li><li><a href="pb.module_wlInitOptions.html">wlInitOptions</a></li></ul><h3>Classes</h3><ul><li><a href="pb.bank.html">bank</a></li><li><a href="pb.bank.accountview.html">accountview</a></li><li><a href="pb.bank.alerts.html">alerts</a></li><li><a href="pb.bank.DoubleStepAuthAdapter.html">DoubleStepAuthAdapter</a></li><li><a href="pb.bank.homeview.html">homeview</a></li><li><a href="pb.bank.investmentsview.html">investmentsview</a></li><li><a href="pb.bank.MovementsAdapter.html">MovementsAdapter</a></li><li><a href="pb.bank.navigation.html">navigation</a></li><li><a href="pb.bank.navigation.ChallengeHandler.html">ChallengeHandler</a></li><li><a href="pb.bank.navigation.loginDialog.html">loginDialog</a></li><li><a href="pb.bank.navigation.loginpinDialog.html">loginpinDialog</a></li><li><a href="pb.bank.StocksAdapter.html">StocksAdapter</a></li><li><a href="pb.bank.user.html">user</a></li></ul><h3>Namespaces</h3><ul><li><a href="pb.html">pb</a></li></ul>
 		</nav>
  	  	
-		<h3>Source: apps/pb_bank_app/common/js/accountview.js</h3>
+		<h3>Class: investmentsview</h3>
 		
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>/**
- * AccountView Module
- * @author Paolo Bianchini
- * @copyright IBM Corp. 2014
- */
+        <h2>
+            <span class="ancestors"><a href="pb.html">pb</a><a href="pb.bank.html">.bank</a>.</span>
+        
+        investmentsview
+        </h2>
+        
+    
+</header>
 
-'use strict';
+<article>
+    <div class="container-overview">
+    
+        
+<dt>
+    
+        <h4 class="name" id="investmentsview"><span class="type-signature"></span>new investmentsview<span class="signature">(ngRoute)</span><span class="type-signature"></span></h4>
 
-/**
- * @description This module manages the display of the account movements screen
- * @class pb.bank.accountview
- * @memberOf pb.bank
- * @param {ngModule} ngRoute
- */
-angular.module('pb.bank.accountview', ['ngRoute'])
+        
+    
+</dt>
+<dd>
 
-/**
- * @description Loads account page when window.location is /accountview
- * @callback pb.bank.accountview~config
- * @param $routeProvider 
- */ 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/accountview', {
-    templateUrl: 'accountview.html',
-    controller: 'AccountViewCtrl'
-  });
-}])
+    
+    <div class="description">
+        This module manages the display of the investments screen
+    </div>
+    
 
-/**
- * @description Controller for the accountview module
- * @callback pb.bank.accountview~controller
- * @param {service} $scope 
- */
-.controller('AccountViewCtrl', [ '$scope', function($scope) {
-	
-	/**
-	 * @property {array} $scope.movements holds movements for account
-	 * @memberOf pb.bank.accountview
-	 */	
-	$scope.movements = [];
+    
 
-	/**
-	 * @property {bool} $scope.isloading flag used to display and hide progress bar 
-	 * while waiting for the adapter call to complete
-	 * @memberOf pb.bank.isloading
-	 * @default
-	 */
-	$scope.isloading = true;
-	
-	
-	var invocationData = {
-			adapter : "MovementsAdapter",
-			procedure: "getMovements",
-			parameters: []
-		};
+    
 
-	WL.Client.invokeProcedure(invocationData, {
-		onSuccess: function(_response){
-			$scope.movements = _response.invocationResult.movements;
-			$scope.isloading = false;
-			$scope.$apply();
-		}, 
-		onFailure: function (_response) {
-			/** @todo should broadcast and add_alert event for showing the error message */
-			// $scope.movements = JSON.stringify(_response.invocationResult);
-			$scope.isloading = false;
-			$scope.$apply();
-		},
-	});
-	
-	
+    
 
-}]);</code></pre>
-        </article>
-    </section>
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>ngRoute</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">ngModule</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="apps_pb_bank_app_common_js_investmentsview.js.html">apps/pb_bank_app/common/js/investmentsview.js</a>, <a href="apps_pb_bank_app_common_js_investmentsview.js.html#line9">line 9</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        <dl>
+                
+<dt>
+    
+        <h4 class="name" id="config"><span class="type-signature"></span>config<span class="signature">($routeProvider)</span><span class="type-signature"></span></h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Loads account page when window.location is /investmentsview
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>$routeProvider</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="apps_pb_bank_app_common_js_investmentsview.js.html">apps/pb_bank_app/common/js/investmentsview.js</a>, <a href="apps_pb_bank_app_common_js_investmentsview.js.html#line17">line 17</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+            
+                
+<dt>
+    
+        <h4 class="name" id="controller"><span class="type-signature"></span>controller<span class="signature">($scope)</span><span class="type-signature"></span></h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Controller for the accountview module
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>$scope</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">service</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="apps_pb_bank_app_common_js_investmentsview.js.html">apps/pb_bank_app/common/js/investmentsview.js</a>, <a href="apps_pb_bank_app_common_js_investmentsview.js.html#line29">line 29</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+            </dl>
+    
+
+    
+</article>
+
+</section>
 
 
 
@@ -159,7 +509,7 @@ angular.module('pb.bank.accountview', ['ngRoute'])
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-    	<p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-dev</a> on Thu Nov 13 2014 23:23:48 GMT+0100 (CET)</p>
+    	<p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-dev</a> on Thu Nov 13 2014 23:23:49 GMT+0100 (CET)</p>
         <p class="copyright">pb.bank maintained by <a href="https://github.com/paolob67">paolob67</a></p>
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
