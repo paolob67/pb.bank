@@ -1,11 +1,23 @@
-/*
- *  Licensed Materials - Property of IBM
- *  5725-I43 (C) Copyright IBM Corp. 2011, 2013. All Rights Reserved.
- *  US Government Users Restricted Rights - Use, duplication or
- *  disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+/**
+ * Stocks Adapter
+ * @author Paolo Bianchini
+ * @copyright IBM Corp. 2014
  */
 
-/** @todo should call some third party instead of returning static data */
+/**
+ * @description This adapter returns data to be plotted
+ * @class pb.bank.StocksAdapter
+ * @memberOf pb.bank
+ */
+
+/**
+ * @description retrieves JSOn object holding array of data to plot
+ * @function getData
+ * @memberOf pb.bank.StocksAdapter
+ * @returns {object} json array of array
+ * @todo should call some third party instead of returning static data
+ */
+// Highcharts explample to retrieve data was
 //$.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=aapl-ohlcv.json&callback=?', function (data) {
 
 function getData() {
