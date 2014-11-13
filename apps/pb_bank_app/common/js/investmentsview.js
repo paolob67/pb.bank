@@ -6,8 +6,19 @@
 
 'use strict';
 
+/**
+ * @description This module manages the display of the investments screen
+ * @class pb.bank.investmentsview
+ * @memberOf pb.bank
+ * @param {ngModule} ngRoute
+ */
 angular.module('pb.bank.investmentsview', ['ngRoute'])
 
+/**
+ * @description Loads account page when window.location is /investmentsview
+ * @callback pb.bank.investmentsview~config
+ * @param $routeProvider 
+ */ 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/investmentsview', {
     templateUrl: 'investmentsview.html',
@@ -15,8 +26,19 @@ angular.module('pb.bank.investmentsview', ['ngRoute'])
   });
 }])
 
+/**
+ * @description Controller for the accountview module
+ * @callback pb.bank.investmentsview~controller
+ * @param {service} $scope 
+ */
 .controller('InvestmentsViewCtrl', ['$scope', function($scope) {
 	
+	/**
+	 * @property {bool} $scope.isloading flag used to display and hide progress bar 
+	 * while waiting for the adapter call to complete
+	 * @memberOf pb.bank.isloading
+	 * @default
+	 */
 	$scope.isloading = true;
 
 	

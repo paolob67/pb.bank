@@ -38,6 +38,7 @@ angular.module('pb.bank.accountview', ['ngRoute'])
 	 * @memberOf pb.bank.accountview
 	 */	
 	$scope.movements = [];
+
 	/**
 	 * @property {bool} $scope.isloading flag used to display and hide progress bar 
 	 * while waiting for the adapter call to complete
