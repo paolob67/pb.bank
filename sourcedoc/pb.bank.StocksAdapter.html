@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     
-    <title>pb.bank - soruce documentation: Module: Messages</title>
+    <title>pb.bank - soruce documentation: Class: StocksAdapter</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -64,7 +64,7 @@
 	    	<h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="pb.module_Messages.html">Messages</a></li><li><a href="pb.module_wlInitOptions.html">wlInitOptions</a></li></ul><h3>Classes</h3><ul><li><a href="pb.bank.html">bank</a></li><li><a href="pb.bank.alerts.html">alerts</a></li><li><a href="pb.bank.DoubleStepAuthAdapter.html">DoubleStepAuthAdapter</a></li><li><a href="pb.bank.homeview.html">homeview</a></li><li><a href="pb.bank.MovementsAdapter.html">MovementsAdapter</a></li><li><a href="pb.bank.navigation.html">navigation</a></li><li><a href="pb.bank.navigation.ChallengeHandler.html">ChallengeHandler</a></li><li><a href="pb.bank.navigation.loginDialog.html">loginDialog</a></li><li><a href="pb.bank.navigation.loginpinDialog.html">loginpinDialog</a></li><li><a href="pb.bank.StocksAdapter.html">StocksAdapter</a></li><li><a href="pb.bank.user.html">user</a></li></ul><h3>Namespaces</h3><ul><li><a href="pb.html">pb</a></li></ul>
 		</nav>
  	  	
-		<h3>Module: Messages</h3>
+		<h3>Class: StocksAdapter</h3>
 		
 
 
@@ -74,66 +74,43 @@
 
 <header>
     
+        <h2>
+            <span class="ancestors"><a href="pb.html">pb</a><a href="pb.bank.html">.bank</a>.</span>
+        
+        StocksAdapter
+        </h2>
+        
+    
 </header>
 
 <article>
     <div class="container-overview">
     
         
-
-        
-
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    <dl>
-
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
+<dt>
     
+        <h4 class="name" id="StocksAdapter"><span class="type-signature"></span>new StocksAdapter<span class="signature">()</span><span class="type-signature"></span></h4>
 
-        <tr>
-            
-                <td class="name"><code>Messages</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">json</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Worklight message translations {key: "message"}</td>
-        </tr>
+        
+    
+</dt>
+<dd>
 
     
-    </tbody>
-</table>
-</dl>
+    <div class="description">
+        This adapter returns data to be plotted
+    </div>
+    
 
+    
+
+    
+
+    
+
+    
+
+    
 
 
 <dl class="details">
@@ -163,7 +140,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="apps_pb_bank_app_common_js_messages.js.html">apps/pb_bank_app/common/js/messages.js</a>, <a href="apps_pb_bank_app_common_js_messages.js.html#line7">line 7</a>
+        <a href="adapters_StocksAdapter_StocksAdapter-impl.js.html">adapters/StocksAdapter/StocksAdapter-impl.js</a>, <a href="adapters_StocksAdapter_StocksAdapter-impl.js.html#line7">line 7</a>
     </li></ul></dd>
     
 
@@ -175,7 +152,21 @@
 </dl>
 
 
-        
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
     
     </div>
 
@@ -191,6 +182,121 @@
 
     
 
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+            
+<dt>
+    
+        <h4 class="name" id="getData"><span class="type-signature">(static) </span>getData<span class="signature">()</span><span class="type-signature"> &rarr; {object}</span></h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        retrieves JSOn object holding array of data to plot
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="adapters_StocksAdapter_StocksAdapter-impl.js.html">adapters/StocksAdapter/StocksAdapter-impl.js</a>, <a href="adapters_StocksAdapter_StocksAdapter-impl.js.html#line13">line 13</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+    <dt class="tag-todo">To Do:</dt>
+    <dd class="tag-todo">
+        <ul>
+            <li>should call some third party instead of returning static data</li>
+        </ul>
+    </dd>
+    
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    json array of array
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object</span>
+
+
+    </dd>
+</dl>
+
+        
+
+    
+</dd>
+
+        </dl>
     
 
     
