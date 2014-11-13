@@ -1,6 +1,12 @@
+/**
+ * Investments Module
+ * @author Paolo Bianchini
+ * @copyright IBM Corp. 2014
+ */
+
 'use strict';
 
-angular.module('pb.bank.view2', ['ngRoute'])
+angular.module('pb.bank.investmentsview', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/investmentsview', {

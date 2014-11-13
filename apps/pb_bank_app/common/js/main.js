@@ -34,7 +34,7 @@
  * @param {ngModule} pb.bank.navigation manages the navigation bar and the login authorization challenge handler
  * @param {ngModule} pb.bank.homeview manages the welcome page
  * @param {ngModule} pb.bank.accountview manages the first view with protected data for the account 
- * @param {ngModule} pb.bank.view2 manages the second view with public data
+ * @param {ngModule} pb.bank.investmentsview manages the second view with public data
  * @param {ngModule} pb.bank.user manages the display of the data inside the UserIdentity object
  * @param {ngModule} pb.bank.alerts manages alerts display on page (not modal)
  * @param {ngModule} pb.bank.version manages application version display
@@ -45,7 +45,7 @@ angular.module('pb.bank', [
                             'pb.bank.navigation',
                             'pb.bank.homeview',
                             'pb.bank.accountview', 
-                            'pb.bank.view2',
+                            'pb.bank.investmentsview',
                             'pb.bank.user',
                             'pb.bank.alerts',
                             'pb.bank.version' 
