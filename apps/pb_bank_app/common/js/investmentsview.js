@@ -157,12 +157,3 @@ angular.module('pb.bank.investmentsview', ['ngRoute'])
 	});
 
 }]);
-
-	
-	
-	
-	
-	
-	
-	
-	
