@@ -3,13 +3,13 @@
 angular.module('pb.bank.view2', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view2', {
-    templateUrl: 'view2.html',
-    controller: 'View2Ctrl'
+  $routeProvider.when('/investmentsview', {
+    templateUrl: 'investmentsview.html',
+    controller: 'InvestmentsViewCtrl'
   });
 }])
 
-.controller('View2Ctrl', ['$scope', function($scope) {
+.controller('InvestmentsViewCtrl', ['$scope', function($scope) {
 	
 	$scope.isloading = true;
 
