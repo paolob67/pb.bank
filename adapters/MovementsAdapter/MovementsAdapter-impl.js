@@ -73,7 +73,7 @@ function getMovements() {
 	return {
 		
 		movements: movements
-	
+		
 	};
 	
 }
