@@ -14,4 +14,5 @@ Messages = {
 	// Generate a similar file with a language suffix containing the translated messages
 	// key1 : message1,
 	// key2 : message2
+		MSG001 : "MSG001: You have successfully logged out"
 };

@@ -129,7 +129,8 @@ angular.module('pb.bank.navigation', [ 'ui.bootstrap' ])
 		window.location = "#";
 		
 		// Broadcast event for displaying logged off alert on the page */
-		$rootScope.$broadcast('add_alert', {type: "success", msg: "You have successfully logged out"}); 
+		//$rootScope.$broadcast('add_alert', {type: "success", msg: "You have successfully logged out"}); 
+		$rootScope.$broadcast('add_alert', {type: "success", msg: Messages.MSG001}); 
 
 	};
 
